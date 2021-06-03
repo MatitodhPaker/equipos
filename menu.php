@@ -16,7 +16,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="equipo.php">
+            <a class="nav-link" href="equipos.php">
             <i class="fas fa-laptop-medical"></i>
               Agregar equipos
             </a>

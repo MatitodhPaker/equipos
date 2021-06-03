@@ -6,11 +6,7 @@ $(document).ready(function() {
     $('#btnRegisraequipo').click(function() {
         $(location).attr('href', 'ingresarequipo.php');
     });
-    $("#btn_ayuda").click(() => {
-        datosEquipo();
-    })
 });
-
 function eliminarequipo() {
     swal({
             title: "Seguro de eliminar!!!",
@@ -27,9 +23,26 @@ function eliminarequipo() {
             }
         });
 }
-
 function datosUsuario() {
-    swal(":D", "verdad que te engañe", "error");
+    $.ajax({
+    type: "POST",
+    data: {
+        'nombre': $('#nombre').val(),
+        'apaterno': $('#apaterno').val(),
+        'telefono': $('#telefono').val(),
+        'email': $('#email').val()
+    },
+    url: "procesos/agregarusuarios.php",
+    success: function(respuesta) {
+        respuesta = respuesta.trim();
+        if (respuesta == 1) {
+            $('#frmUsuario')[0].reset();
+            swal(":D", "Se agrego con exito", "success");
+        } else {
+            swal(":(", "No se pudo agregar", "error");
+        }
+    }
+    });
     return false;
 }
 
@@ -37,7 +50,8 @@ function datosEquipo() {
     $.ajax({
         type: "POST",
         data: {
-            'nombre': $('#nombre').val(),
+            'idusuario':$('#idUsuario').val(),
+            'nombre': $('#nombreusuario').val(),
             'modelo': $('#modelo').val(),
             'numeroserie': $('#numeroserie').val(),
             'imagen': $('#imagen').val()

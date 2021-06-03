@@ -21,14 +21,17 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
+        <div class="row mt-3">
+        </div>
         </div>
         <div class="col-sm-6">
         <form onsubmit="return datosEquipo()" id="frmEquipos" enctype="multipart/form-data">
           <div class="form-group">
             <div class="row">
               <div class="col">
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" class="form-control" required pattern="[a-zA-Z]+">
+                <?php require_once "equipos/selecUsuario.php"; ?>
+                <label for="nombreusuario">Nombre</label>
+                <input type="text" name="nombreusuario" id="nombreusuario" class="form-control" required pattern="[a-zA-Z]+">
                 <label for="modelo">Modelo</label>
                 <input type="text" name="modelo" id="modelo" class="form-control" required pattern="[a-zA-Z]+">
                 <label for="numeroserie">Numero de serie</label>
@@ -43,7 +46,6 @@
         </div>
       </div>
     </div>
-    
     <script src="public/js/main.js"></script>
   </body>
 </html>
