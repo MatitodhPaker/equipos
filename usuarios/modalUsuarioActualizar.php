@@ -8,7 +8,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form onsubmit="return calcular()" id="frmUsuarioU">
+      <form onsubmit="return datosUsuario()" id="frmUsuarioU">
         <div class="modal-body">
           <div class="form-group">
             <div class="row">
