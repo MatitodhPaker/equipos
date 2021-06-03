@@ -20,7 +20,9 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
         <form method="post" onsubmit="return calcular()" id="frmcmoneda">
         <div class="form-group">
             <div class="row">
@@ -32,6 +34,8 @@
                 <input type="text" name="modeloU" id="modeloU" class="form-control">
                 <label for="numeroserieU">Numero de serie</label>
                 <input type="text" name="numeroserieU" id="numeroserieU" class="form-control">
+                <label for="imagenU">Imagen del equipo</label>
+                <input type="file" class="form-control-file" id="imagenU">
               </div>
             </div>
           </div>
