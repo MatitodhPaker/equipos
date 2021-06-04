@@ -23,5 +23,12 @@
         </div>
       </div>
     </div>
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col" id="tabla">
+          <?php require_once "usuarios/tablausuarios.php"; ?>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

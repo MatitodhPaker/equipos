@@ -127,3 +127,30 @@ function datosEquipoU() {
 			}
 	});
 }
+function eliminarusuario(idusuario) {
+	swal({
+					title: "Seguro de eliminar!!!",
+					text: "Una vez eliminado no podras recuperar este equipo",
+					icon: "warning",
+					buttons: true,
+					dangerMode: true,
+			})
+			.then((willDelete) => {
+					if (willDelete) {
+						$.ajax({
+							type: "POST",
+							data: "idusuario=" + idusuario,
+							url: "procesos/EliminarUsuario.php",
+							success: function(respuesta) {
+									respuesta = respuesta.trim();
+									if (respuesta == 1) {
+											swal(":D", "Se elimino con exito", "success");
+											location.reload();
+									} else {
+											swal(":(", "No se pudo agregar", "error");
+									}
+							}
+							});
+					}
+			});
+}
