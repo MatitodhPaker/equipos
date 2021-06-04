@@ -1,13 +1,9 @@
 $(document).ready(function() {
-    $('#btneliminar').click(function() {
-        eliminarequipo();
-    });
-
     $('#btnRegisraequipo').click(function() {
         $(location).attr('href', 'ingresarequipo.php');
     });
 });
-function eliminarequipo() {
+function eliminarequipo(idequipo) {
     swal({
             title: "Seguro de eliminar!!!",
             text: "Una vez eliminado no podras recuperar este equipo",
@@ -17,9 +13,20 @@ function eliminarequipo() {
         })
         .then((willDelete) => {
             if (willDelete) {
-                swal("se elimino de manera correcta", {
-                    icon: "success",
-                });
+							$.ajax({
+								type: "POST",
+								data: "idequipo=" + idequipo,
+								url: "procesos/Eliminarequipo.php",
+								success: function(respuesta) {
+										respuesta = respuesta.trim();
+										if (respuesta == 1) {
+												swal(":D", "Se elimino con exito", "success");
+												location.reload();
+										} else {
+												swal(":(", "No se pudo agregar", "error");
+										}
+								}
+								});
             }
         });
 }

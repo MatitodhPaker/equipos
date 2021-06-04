@@ -2,7 +2,7 @@
   require_once "./procesos/conexion.php";
   $obj= new Conexion();
   $conexion= $obj->conectar();
-  $sql="SELECT nombre_equipo, modelo, ns, nombre, imagen, t_usuarios.id_usuario FROM t_equipos INNER JOIN t_usuarios WHERE t_equipos.id_usuario = t_usuarios.id_usuario";
+  $sql="SELECT nombre_equipo, modelo, ns, nombre, imagen, t_usuarios.id_usuario, id_equipo FROM t_equipos INNER JOIN t_usuarios WHERE t_equipos.id_usuario = t_usuarios.id_usuario";
   $result=mysqli_query($conexion,$sql);
 ?>
 <div class="card">
@@ -38,9 +38,9 @@
               </span>
             </td>
             <td>
-              <span class="btn btn-danger btn-sm" id="btneliminar">
+              <button class="btn btn-danger btn-sm" id="btneliminar" onclick="eliminarequipo(<?php echo $ver[6]; ?>)">
                 <i class="far fa-trash-alt"></i>
-              </span>
+              </button>
             </td>
           </tr>
         <?php endwhile; ?>
