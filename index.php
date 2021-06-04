@@ -18,7 +18,7 @@
     </div>
     <div class="container">
       <div class="row mt-4">
-        <div class="col">
+        <div class="col" id="tabla">
           <?php require_once "equipos/tablaequipo.php"; ?>
         </div>
       </div>

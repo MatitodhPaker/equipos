@@ -1,5 +1,5 @@
 <?php
-  require_once "procesos/conexion.php";
+  require_once "./procesos/conexion.php";
   $obj= new Conexion();
   $conexion= $obj->conectar();
   $sql="SELECT nombre_equipo, modelo, ns, nombre, imagen, t_usuarios.id_usuario FROM t_equipos INNER JOIN t_usuarios WHERE t_equipos.id_usuario = t_usuarios.id_usuario";

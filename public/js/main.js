@@ -94,4 +94,29 @@ function datosUsuarioU() {
 }
 function actualizarU(idusuario) {
 	$('#idUsuariou').val(idusuario);
+	$('#idUsuarioequipo').val(idusuario);
+}
+function datosEquipoU() {
+	$.ajax({
+			type: "POST",
+			data: {
+					'idusuario':$('#idUsuarioequipo').val(),
+					'nombre': $('#nombreEquipoU').val(),
+					'modelo': $('#modeloU').val(),
+					'numeroserie': $('#numeroserieU').val(),
+					'imagen': $('#imagenU').val()
+			},
+			url: "procesos/agregarequiposU.php",
+			success: function(respuesta) {
+				console.log(respuesta);
+					respuesta = respuesta.trim();
+					if (respuesta == 1) {
+							$('#frmEquipoU')[0].reset();
+							swal(":D", "Se agrego con exito", "success");
+					} else {
+							swal(":(", "No se pudo agregar", "error");
+							return false;
+					}
+			}
+	});
 }

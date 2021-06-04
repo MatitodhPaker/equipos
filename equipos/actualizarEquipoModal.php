@@ -7,28 +7,29 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <form onsubmit="return datosEquipoU()" id="frmEquipoU">
       <div class="modal-body">
-        <form onsubmit="return calcular()" id="frmEquipoU">
           <div class="form-group">
             <div class="row">
               <div class="col">
-                <div id="idUsuario" hidden></div>
-                <label for="nombreU">Nombre</label>
-                <input type="text" name="nombreU" id="nombreU" class="form-control" required>
+                <input type="text" id="idUsuarioequipo" hidden></input>
+                <label for="nombreEquipoU">Nombre</label>
+                <input type="text" name="nombreEquipoU" id="nombreEquipoU" class="form-control" required pattern="[a-zA-Z]+">
                 <label for="modeloU">Modelo</label>
-                <input type="text" name="modeloU" id="modeloU" class="form-control">
+                <input type="text" name="modeloU" id="modeloU" class="form-control" required pattern="[a-zA-Z]+">
                 <label for="numeroserieU">Numero de serie</label>
-                <input type="text" name="numeroserieU" id="numeroserieU" class="form-control">
+                <input type="text" name="numeroserieU" id="numeroserieU" class="form-control" required pattern="[0-9]+">
+                <label for="imagenU">Imagen del equipo</label>
+                <input type="file" class="form-control-file" id="imagenU" name="imagenU" required>
               </div>
             </div>
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-danger">Eliminar</button>
-        <button type="button" class="btn btn-warning">Editar</button>
+        <button  class="btn btn-warning">Editar</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
