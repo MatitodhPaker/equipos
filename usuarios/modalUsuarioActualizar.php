@@ -1,4 +1,3 @@
-
 <div class="modal fade" id="usuarioModalU" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -8,11 +7,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form onsubmit="return datosUsuario()" id="frmUsuarioU">
+      <form onsubmit="return datosUsuarioU()" id="frmUsuarioU">
         <div class="modal-body">
           <div class="form-group">
             <div class="row">
               <div class="col">
+                <input type="text" name="idUsuariou" id="idUsuariou" hidden>
                 <label for="nombreU">Nombre</label>
                 <input type="text" name="nombreU" id="nombreU" class="form-control" required>
                 <label for="apaternoU">Apellido</label>

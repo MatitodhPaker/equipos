@@ -1,3 +1,10 @@
+<?php
+  require_once "procesos/conexion.php";
+  $obj= new Conexion();
+  $conexion= $obj->conectar();
+  $sql="SELECT nombre_equipo, modelo, ns, nombre, imagen, t_usuarios.id_usuario FROM t_equipos INNER JOIN t_usuarios WHERE t_equipos.id_usuario = t_usuarios.id_usuario";
+  $result=mysqli_query($conexion,$sql);
+?>
 <div class="card">
   <div class="card-body">
     <div class="table-responsive">
@@ -14,22 +21,19 @@
           </tr>
         </thead>
         <tbody>
+        <?php while($ver=mysqli_fetch_row($result)): ?>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $ver[0]; ?></td>
+            <td><?php echo $ver[1]; ?></td>
+            <td><?php echo $ver[2]; ?></td>
             <td>
-              <span class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#usuarioModalU">
-                <i class="far fa-user"></i>
-              </span>
+              <?php echo $ver[3]; ?>
             </td>
             <td>
-              <span class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#imagenesModal">
-                <i class="fas fa-image"></i>
-              </span>
+              <img src="<?php echo $ver[4]; ?>" style="width: 10%;">
             </td>
             <td>
-              <span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#equipoModalU">
+              <span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#equipoModalU" onclick="actualizarU(<?php echo $ver[5]; ?>)">
                 <i class="fas fa-edit"></i>
               </span>
             </td>
@@ -39,12 +43,12 @@
               </span>
             </td>
           </tr>
+        <?php endwhile; ?>
         </tbody>
       </table>
     </div>
     <?php
       require_once "usuarios/modalUsuarioActualizar.php";
-      require_once "imagenesmodal.php";
       require_once "actualizarEquipoModal.php";
     ?>
   </div>
