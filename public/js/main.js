@@ -81,23 +81,23 @@ function datosUsuarioU() {
 	type: "POST",
 	data: {
 			'idusuariou':$('#idUsuariou').val(),
-			'nombre': $('#nombre').val(),
-			'apaterno': $('#apaterno').val(),
-			'telefono': $('#telefono').val(),
-			'email': $('#email').val()
+			'nombre': $('#nombreU').val(),
+			'apaterno': $('#apaternoU').val(),
+			'telefono': $('#telefonoU').val(),
+			'email': $('#emailU').val()
 	},
-	url: "procesos/agregarusuarios.php",
+	url: "procesos/agregarusuariosU.php",
 	success: function(respuesta) {
 			respuesta = respuesta.trim();
 			if (respuesta == 1) {
-					$('#frmUsuario')[0].reset();
+					$('#frmUsuarioU')[0].reset();
 					swal(":D", "Se agrego con exito", "success");
 			} else {
 					swal(":(", "No se pudo agregar", "error");
+					return false;
 			}
 	}
 	});
-	return false;
 }
 function actualizarU(idusuario) {
 	$('#idUsuariou').val(idusuario);

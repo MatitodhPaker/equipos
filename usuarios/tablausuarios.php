@@ -8,7 +8,7 @@
 <div class="card">
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-hover table-condensed" id="tablaEquiposDt">
+      <table class="table table-hover table-condensed" id="tablaUsuariosDt">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -50,6 +50,6 @@
 </div>
 <script>
   $(document).ready(function () {
-    $('#tablaEquiposDt').DataTable();
+    $('#tablaUsuariosDt').DataTable();
   });
 </script>
