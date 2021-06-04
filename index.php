@@ -19,6 +19,7 @@
     <div class="container">
       <div class="row mt-4">
         <div class="col" id="tabla">
+        <h1>Tabla de equipos</h1>
           <?php require_once "equipos/tablaequipo.php"; ?>
         </div>
       </div>
@@ -26,6 +27,7 @@
     <div class="container">
       <div class="row mt-4">
         <div class="col" id="tabla">
+          <h1>Tabla de usuarios</h1>
           <?php require_once "usuarios/tablausuarios.php"; ?>
         </div>
       </div>
